@@ -1,4 +1,4 @@
-header {
+body > header {
   margin-top: 120px; /* paddings to compensate for header 120px */
   /* padding-bottom: 120px; */
   position: relative; /* Set context for its children elements when positioning*/

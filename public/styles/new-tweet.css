@@ -1,9 +1,16 @@
 
-.new-tweet .counter {
+.new-tweet form {
+  position: relative;
+  text-align: left;
+}
+
+.new-tweet form .counter {
   text-align: right;
   font-family: 'Bungee', cursive;
-  float:right;
-  margin-right: 2.5%;
+  position: absolute;
+  right: 5%;
+  bottom: 0;
+}
 
 .new-tweet .counter.error {
   color: red;
@@ -14,8 +21,6 @@
   color: #ffffff;
   border: none;
   font-family: 'Bungee', cursive;
-  float: left;
-  margin-left: 2.5%;
 }
 
 .new-tweet textarea {
