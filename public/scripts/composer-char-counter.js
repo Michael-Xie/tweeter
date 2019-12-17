@@ -8,11 +8,12 @@ $(document).ready(function() {
 
     let charLeft = maxChar - currLen;
     console.log(currLen);
-    if (charLeft < 0) {
-      $(".new-tweet span").css("color", "red");
-    } else {
-      $(".new-tweet span").css("color", "black");
-    }
+    $(".new-tweet span").toggleClass('error', charLeft < 0)
+    // if (charLeft < 0) {
+    //   $(".new-tweet span").css("color", "red");
+    // } else {
+    //   $(".new-tweet span").css("color", "black");
+    // }
 
     $(".new-tweet span").text(charLeft);
     })

@@ -5,6 +5,8 @@
   float:right;
   margin-right: 2.5%;
 
+.new-tweet .counter.error {
+  color: red;
 }
 
 .new-tweet .btn {
