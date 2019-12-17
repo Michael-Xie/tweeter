@@ -1,4 +1,4 @@
-body > header {
+#page-header {
   margin-top: 120px; /* paddings to compensate for header 120px */
   /* padding-bottom: 120px; */
   position: relative; /* Set context for its children elements when positioning*/
@@ -10,7 +10,7 @@ body > header {
   /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 
-header h2 {
+#page-header h2 {
   color: #ffffff;
   position: absolute;
   text-align: center;
@@ -21,7 +21,7 @@ header h2 {
 
 }
 
-header img {
+#page-header img {
   position: absolute;
   top: 30%;
   left: 50%;
@@ -29,7 +29,4 @@ header img {
   transform: translate(-50%, -30%);
 
 }
-/* header img {
-
-} */
 
