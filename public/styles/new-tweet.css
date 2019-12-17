@@ -8,7 +8,7 @@
   text-align: right;
   font-family: 'Bungee', cursive;
   position: absolute;
-  right: 5%;
+  right: 0;
   bottom: 0;
 }
 
@@ -24,7 +24,7 @@
 }
 
 .new-tweet textarea {
-  width: 95%;
+  width: 100%;
   resize: none;
   border: none;
   border-bottom: 5px solid #000000;
