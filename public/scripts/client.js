@@ -122,12 +122,19 @@ const sortData = function(data) {
 const loadTweets = function () {
   $.ajax('/tweets/', { method: 'GET' })
     .then(function (data) {
+      deleteTweets();
       renderTweets(sortData(data));
     })
 
 }
+
+const deleteTweets = function() {
+  $(".tweet").remove();
+}
+
 $(document).ready(function () {
   loadTweets();
+  console.log("Loaded tweets");
 
   $("form").submit(function (event) {
     event.preventDefault();
@@ -140,8 +147,10 @@ $(document).ready(function () {
     } else {
       $.ajax("/tweets/", { method: "POST", data: $(this).serialize() })
         .done(function () {
-
           console.log("Ajax request successful");
+          $("form textarea").val("");
+          loadTweets();
+          console.log("Loaded tweets");      
         });
     }
   });
