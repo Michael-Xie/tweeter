@@ -108,14 +108,27 @@ function formatTime(timeCreated) {
   return "<1 minutes ago";
 }
 
+const sortData = function(data) {
+  return data.sort(function(a, b) {
+    if (a.created_at > b.created_at) {
+      return -1;
+    } else if (a.created_at < b.created_at) {
+      return 1;
+    } else {
+      return 0;
+    }
+  });
+}
 const loadTweets = function () {
   $.ajax('/tweets/', { method: 'GET' })
     .then(function (data) {
-      renderTweets(data);;
+      renderTweets(sortData(data));
     })
 
 }
 $(document).ready(function () {
+  loadTweets();
+
   $("form").submit(function (event) {
     event.preventDefault();
     const maxLen = 140;
@@ -127,10 +140,10 @@ $(document).ready(function () {
     } else {
       $.ajax("/tweets/", { method: "POST", data: $(this).serialize() })
         .done(function () {
+
           console.log("Ajax request successful");
         });
     }
   });
-  loadTweets();
 })
 
