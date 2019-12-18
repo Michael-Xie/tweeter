@@ -44,7 +44,6 @@ const createTweetElement = function (tweet) {
   let $firstName = $('<span>').addClass('first-name');
   $firstName.append(tweet.user.name);
   let $photo = $('<img>').attr('src', tweet.user.avatars);
-  console.log("link to avatar", tweet.user.avatars);
   let $photoName = $('<div>').addClass('photo-name');
   $photoName.append($photo);
   $photoName.append($firstName);
@@ -56,12 +55,11 @@ const createTweetElement = function (tweet) {
   $header.append($handle);
 
   // Create tweet context
-  let $content = $('<p>').append(tweet.content.text);
-
+  let $content = $('<p>').text(tweet.content.text);
+  console.log("content", $content);
   // Create footer
   let $footer = $('<footer>');
   let $timePassed = $('<span>').addClass('time-passed');
-  console.log("time from file", tweet.created_at);
   $timePassed.append(formatTime(tweet.created_at));
   let $reaction = $('<span>').addClass('reaction');
   $reaction.append('⚑↹❤︎'); //↻
@@ -72,7 +70,6 @@ const createTweetElement = function (tweet) {
   $tweet.append($header);
   $tweet.append($content);
   $tweet.append($footer);
-  console.log("creating tweet", $tweet);
   return $tweet;
 }
 
@@ -132,9 +129,14 @@ const deleteTweets = function() {
   $(".tweet").remove();
 }
 
+// const escape =  function(str) {
+//   let div = document.createElement('div');
+//   div.appendChild(document.createTextNode(str));
+//   return div.innerHTML;
+// }
+
 $(document).ready(function () {
   loadTweets();
-  console.log("Loaded tweets");
 
   $("form").submit(function (event) {
     event.preventDefault();
@@ -150,7 +152,6 @@ $(document).ready(function () {
           console.log("Ajax request successful");
           $("form textarea").val("");
           loadTweets();
-          console.log("Loaded tweets");      
         });
     }
   });
