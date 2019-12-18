@@ -56,7 +56,7 @@ const createTweetElement = function (tweet) {
 
   // Create tweet context
   let $content = $('<p>').text(tweet.content.text);
-  console.log("content", $content);
+
   // Create footer
   let $footer = $('<footer>');
   let $timePassed = $('<span>').addClass('time-passed');
@@ -137,6 +137,10 @@ const deleteTweets = function() {
 
 $(document).ready(function () {
   loadTweets();
+
+  $("#arrow").on("click", function(){
+    $(".new-tweet").slideToggle();
+  });
 
   $("form").submit(function (event) {
     event.preventDefault();
