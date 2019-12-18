@@ -17,8 +17,10 @@
   left: 50%;
   bottom: 0;
   transform: translate(-50%, 0%);
+}
 
-
+#page-header #last-name {
+  font-weight: normal;
 }
 
 #page-header img {
