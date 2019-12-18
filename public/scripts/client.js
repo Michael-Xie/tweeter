@@ -118,10 +118,18 @@ const loadTweets = function () {
 $(document).ready(function () {
   $("form").submit(function (event) {
     event.preventDefault();
-    $.ajax("/tweets/", { method: "POST", data: $(this).serialize() })
-    .done(function() {
-      console.log("Ajax request successful");
-    });
+    const maxLen = 140;
+    let value = this.children[0].value;
+    if (value.length > maxLen) {
+      alert(`Please shorten your message. It is over 140 characters`);
+    } else if (value.length === null || value.length === 0) {
+      alert(`Empty tweet not accepted`);
+    } else {
+      $.ajax("/tweets/", { method: "POST", data: $(this).serialize() })
+        .done(function () {
+          console.log("Ajax request successful");
+        });
+    }
   });
   loadTweets();
 })
