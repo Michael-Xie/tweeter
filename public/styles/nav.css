@@ -1,4 +1,4 @@
-nav span {
+#logo {
   font-family: 'Bungee', cursive;
 }
 
@@ -12,5 +12,23 @@ nav {
   background-color: #4056a1;
   color: #ffffff;
   padding: 1.5em;
+  display: flex;
+  justify-content: space-between;
   
+}
+
+.bold {
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: bold;
+}
+
+#write-tweet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#arrow {
+  padding-left: 6px;
+  color: red;
 }
