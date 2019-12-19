@@ -149,13 +149,13 @@ $(document).ready(function () {
     event.preventDefault();
     const maxLen = 140;
     // console.log(value);
-    // console.log(this.children[0].value);
+    console.log("trimmed input length:", this.children[0].value.trim().length);
 
-    if (this.children[0].value.length > maxLen) {
+    if (this.children[0].value.trim().length > maxLen) {
       $(".error-message").text(`Please shorten your message. It is over 140 characters.`);
       $(".error-message").slideDown(0);
 
-    } else if (this.children[0].value.length === null || this.children[0].value.length === 0) {
+    } else if (this.children[0].value.trim().length === null || this.children[0].value.trim().length === 0) {
       $(".error-message").text(`Empty tweet not accepted.`);
       $(".error-message").slideDown(0);
 
