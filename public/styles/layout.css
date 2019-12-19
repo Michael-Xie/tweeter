@@ -26,12 +26,7 @@ body {
  */
 main {
   width: 90%;
-  /* display: flex;
-  justify-content: center; */
   text-align: center;
-  background-color: #f4f1ec;
-  /* margin-top: 60px;
-  margin-bottom: 60px; */
   margin: 60px auto; /* top-bottom left-right auto */
 
 }
