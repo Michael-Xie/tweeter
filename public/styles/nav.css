@@ -30,10 +30,22 @@ nav {
   cursor: pointer;
 }
 
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(6px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
 #arrow {
   padding-left: 6px;
   height: 25%;
   color: white;
+  animation: float 2s ease-in-out infinite;
 }
 
 #arrow:hover {
