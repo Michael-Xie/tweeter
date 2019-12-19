@@ -1,49 +1,27 @@
 /* Tablet Styles */
-@media only screen and (min-width: 768px) {
-  .feature {
-    width: 33.3%;
-    line-height: 600px;
+/* @media only screen and (min-width: 768px) {
+  nav {
+    opacity: 0%;
   }
-
-  .content {
-    width: 66.7%;
-    float: right
-  }
-
-  .footer {
-    clear: right;
-  }
-}
+} */
 
 /* Desktop styles */
 @media only screen and (min-width: 1024px) {
-  .hero {
-    width: 33.3%;
-    float: left;
+  body {
+    display: flex;
+    flex-direction: row;
   }
-
-  .feature {
-    line-height: 300px;
+  #page-header {
+    order: 1;
+    margin-top: 170px;
+    margin-right: 50px;
+    margin-left: 50px;
+    flex-basis: 30%;
   }
-
-  .menu {
-    background-color: #111111;
-    color: #f0f0f0;
-    text-align: left;
-  }
-
-  .tagline {
-    display: inline;
-    font-style: italic;
-    font-weight: normal;
-    font-size: 12px;
-    color: tomato;
-    float: right;
-  }
-
-  .main {
-    max-width: 1024px;
-    font-size: 16px;
-    margin: 0 auto;
+  .container {
+    order: 2;
+    flex-basis: 70%;
+    margin-top: 170px;
+    margin-right: 50px;
   }
 }
