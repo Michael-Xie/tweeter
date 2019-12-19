@@ -9,16 +9,25 @@
 }
 
 .new-tweet form {
-  position: relative;
-  text-align: left;
+  /* position: relative;
+  text-align: left; */
+  display: flex;
+  flex-direction: column;
+}
+
+.new-tweet .btn-counter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 10px;
 }
 
 .new-tweet form .counter {
-  text-align: right;
+  /* text-align: right; */
   font-family: 'Bungee', cursive;
-  position: absolute;
+  /* position: absolute;
   right: 0;
-  bottom: 0;
+  bottom: 0; */
 }
 
 .new-tweet .counter.error {

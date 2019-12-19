@@ -33,19 +33,19 @@
   <nav>
     <span id="logo">tweeter</span>
     <span id="write-tweet">
-        <span><span class="bold">Write</span> a new tweet</span>
-        <div id="arrow">↡</div>
-      
+      <span><span class="bold">Write</span> a new tweet</span>
+      <div id="arrow">↡</div>
+
     </span>
 
   </nav>
   <header id="page-header">
     <!-- <div> -->
-      <img src="/images/profile-hex.png">
+    <img src="/images/profile-hex.png">
     <!-- </div> -->
     <!-- <br> -->
     <!-- <div> -->
-      <h2>Michael <span id="last-name">Xie</span></h2> <!-- bold first name -->
+    <h2>Michael <span id="last-name">Xie</span></h2> <!-- bold first name -->
     <!-- </div> -->
   </header>
   <!-- Page-specific (main) content here -->
@@ -56,8 +56,10 @@
 
       <form method="POST" action="/tweets/">
         <textarea name="text" placeholder="What are you humming about?"></textarea>
-        <input class="btn" type="submit" value="Tweet">
-        <span class="counter">140</span>
+        <div class="btn-counter">
+          <input class="btn" type="submit" value="Tweet">
+          <span class="counter">140</span>
+        </div>
       </form>
     </section>
     <section id="tweet-list">
