@@ -4,8 +4,11 @@ Tweeter is a simple, single-page Twitter clone that uses HTML, CSS, JS, jQuery a
 
 ## Final Product
 
-!["Tablet view"](#)
-!["Desktop view"](#)
+!["Tablet view"](https://github.com/Michael-Xie/tweeter/blob/master/public/images/tablet-view.png)
+!["Desktop view"](https://github.com/Michael-Xie/tweeter/blob/master/public/images/desktop-view.png)
+!["Write a Tweet"](https://github.com/Michael-Xie/tweeter/blob/master/public/images/write-new-tweet.png)
+!["Tweet highlight"](https://github.com/Michael-Xie/tweeter/blob/master/public/images/tweet-highlight.png)
+!["Toggle up"](https://github.com/Michael-Xie/tweeter/blob/master/public/images/second-toggle.png)
 
 ## Dependencies
 
