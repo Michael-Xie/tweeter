@@ -11,10 +11,6 @@
   box-shadow: 10px 5px 5px #4056a1;
 }
 
-/* .tweet:hover .reaction{
-  box-shadow: 10px 5px 5px #4056a1;
-
-} */
 .tweet {
   border-width: 3px;
   border-color: black;
@@ -33,7 +29,6 @@
 }
 
 .tweet header img {
-  /* max-width: 10%; */
   height: auto;
 }
 .tweet header .handle {
@@ -41,17 +36,10 @@
   opacity: 0%;
 }
 
-
-
-/* .tweet header .first-name {
-  text-align: left;
-} */
-
 .tweet p {
   border-bottom: 3px solid black;
   text-align: left;
   margin-bottom: 0;
-  /* overflow: auto; */
   word-break: break-all;
 }
 

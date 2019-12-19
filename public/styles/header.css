@@ -1,7 +1,5 @@
 #page-header {
   margin-top: 120px; /*paddings to compensate for header 120px */
-  /* padding-bottom: 120px; */
-  /* position: relative; Set context for its children elements when positioning */
   height: 400px;
   width: 100%;
 
@@ -17,19 +15,8 @@
 #page-header h2 {
   color: #ffffff;
   margin: 0;
-  /* position: absolute; */
-  /* text-align: center; */
-  /* left: 50%; */
-  /* bottom: 0; */
-  /* transform: translate(-50%, 0%); */
 }
 
 #page-header #last-name {
   font-weight: normal;
 }
-
-/* #page-header img {
-  margin-top: 150px;
-
-} */
-

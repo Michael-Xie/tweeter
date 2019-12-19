@@ -1,42 +1,13 @@
-// Fake data taken from initial-tweets.json
-// const data = [
-//   {
-//     "user": {
-//       "name": "Newton",
-//       "avatars": "https://i.imgur.com/73hZDYK.png"
-//       ,
-//       "handle": "@SirIsaac"
-//     },
-//     "content": {
-//       "text": "If I have seen further it is by standing on the shoulders of giants"
-//     },
-//     "created_at": 1461116232227
-//   },
-//   {
-//     "user": {
-//       "name": "Descartes",
-//       "avatars": "https://i.imgur.com/nlhLi3I.png",
-//       "handle": "@rd"
-//     },
-//     "content": {
-//       "text": "Je pense , donc je suis"
-//     },
-//     "created_at": 1461113959088
-//   }
-// ]
-
-const renderTweets = function (tweets) {
-  // loops through tweets
-  // calls createTweetElement for each tweet
-  // takes return value and appends it to the tweets container
-
+// Render tweets to display on webpage
+const renderTweets = function(tweets) {
   for (tweet of tweets) {
     let createdElement = createTweetElement(tweet);
     $('#tweet-list').append(createdElement);
   }
-}
+};
 
-const createTweetElement = function (tweet) {
+// Generate html to create a tweet
+const createTweetElement = function(tweet) {
   let $tweet = $('<article>').addClass('tweet');
 
   // Create header
@@ -71,10 +42,11 @@ const createTweetElement = function (tweet) {
   $tweet.append($content);
   $tweet.append($footer);
   return $tweet;
-}
+};
 
 // A rendition of https://stackoverflow.com/questions/47253206/convert-milliseconds-to-timestamp-time-ago-59m-5d-3m-etc-in-javascript
-function formatTime(timeCreated) {
+// Return a string of the formated time with human readable units
+const formatTime = function(timeCreated) {
 
   let diff = Math.floor((Date.now() - timeCreated) / 1000);
   let interval = Math.floor(diff / 31536000);
@@ -105,8 +77,9 @@ function formatTime(timeCreated) {
   return "<1 minutes ago";
 }
 
-const sortData = function (data) {
-  return data.sort(function (a, b) {
+// A callback that sorts tweet data by created date from most current to least current
+const sortData = function(data) {
+  return data.sort(function(a, b) {
     if (a.created_at > b.created_at) {
       return -1;
     } else if (a.created_at < b.created_at) {
@@ -115,42 +88,38 @@ const sortData = function (data) {
       return 0;
     }
   });
-}
-const loadTweets = function () {
+};
+
+// Load tweets to screen
+const loadTweets = function() {
   $.ajax('/tweets/', { method: 'GET' })
-    .then(function (data) {
+    .then(function(data) {
+      // Show most current list of tweets
       deleteTweets();
       renderTweets(sortData(data));
-    })
+    });
+};
 
-}
-
-const deleteTweets = function () {
+// Delete all tweets
+const deleteTweets = function() {
   $(".tweet").remove();
-}
+};
 
-// const escape =  function(str) {
-//   let div = document.createElement('div');
-//   div.appendChild(document.createTextNode(str));
-//   return div.innerHTML;
-// }
-
-$(document).ready(function () {
+$(document).ready(function() {
   loadTweets();
   $(".new-tweet").hide();
-  $("#write-tweet").on("click", function () {
+  $("#write-tweet").on("click", function() {
     $(".new-tweet").slideToggle();
     $(".new-tweet textarea").focus();
   });
 
   $(".error-message").slideUp(0);
 
-  $("form").submit(function (event) {
+  $("form").submit(function(event) {
     event.preventDefault();
-    const maxLen = 140;
-    // console.log(value);
-    console.log("trimmed input length:", this.children[0].value.trim().length);
 
+    const maxLen = 140;
+    // Show error message if user input doesn't satisfy tweet requirements
     if (this.children[0].value.trim().length > maxLen) {
       $(".error-message").text(`Please shorten your message. It is over 140 characters.`);
       $(".error-message").slideDown(0);
@@ -160,17 +129,21 @@ $(document).ready(function () {
       $(".error-message").slideDown(0);
 
     } else {
+      // Perform AJAX post request of valid new tweet
       $.ajax("/tweets/", { method: "POST", data: $(this).serialize() })
-        .done(function () {
+        .done(function() {
           console.log("Ajax request successful");
+
+          // Reset new tweet values and error message for next user input
           $("textarea").val("");
           $(".error-message").text("");
           $(".new-tweet span").text(maxLen);
           $(".error-message").slideUp(0);
-
+          
+          // Load newly written tweet to tweet-list
           loadTweets();
         });
     }
   });
-})
+});
 

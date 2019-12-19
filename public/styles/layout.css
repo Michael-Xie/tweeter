@@ -27,6 +27,5 @@ body {
 main {
   width: 90%;
   text-align: center;
-  margin: 0px auto; /* top-bottom left-right auto */
-
+  margin: 0px auto; /* top-bottom, left-right auto */
 }
