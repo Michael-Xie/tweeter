@@ -51,7 +51,8 @@
   border-bottom: 3px solid black;
   text-align: left;
   margin-bottom: 0;
-  overflow: auto;
+  /* overflow: auto; */
+  word-break: break-all;
 }
 
 

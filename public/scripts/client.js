@@ -138,7 +138,7 @@ const deleteTweets = function () {
 $(document).ready(function () {
   loadTweets();
 
-  $("#arrow").on("click", function () {
+  $("#write-tweet").on("click", function () {
     $(".new-tweet").slideToggle();
   });
 
