@@ -75,7 +75,7 @@ const formatTime = function(timeCreated) {
     return `${interval} minutes ago`;
   }
   return "<1 minutes ago";
-}
+};
 
 // A callback that sorts tweet data by created date from most current to least current
 const sortData = function(data) {
@@ -107,14 +107,38 @@ const deleteTweets = function() {
 
 $(document).ready(function() {
   loadTweets();
+
+  // Hide compose new tweet initially, when user clicks on Compose Tweet icon, slide down and focus on the text area
   $(".new-tweet").hide();
   $("#write-tweet").on("click", function() {
     $(".new-tweet").slideToggle();
     $(".new-tweet textarea").focus();
   });
 
+  // Keep the error message hidden at start
   $(".error-message").slideUp(0);
 
+  // Setup second toggle button at bottom right of screen, and appears after scrolling for some time
+  let offset = 300;
+  let duration = 200;
+  $('#back-to-top').hide();
+  $(window).scroll(function() {
+    if ($(this).scrollTop() > offset) {
+      $('#back-to-top').fadeIn(duration);
+    } else {
+      $('#back-to-top').fadeOut(duration);
+    }
+  });
+
+  // When icon is cliced, it will go back up and ready to create new tweet when clicked
+  $('#back-to-top').on("click", function(event) {
+    $('.new-tweet textarea').animate({ scrollTop: 0 }, duration);
+    $(".new-tweet").slideDown();
+    $(".new-tweet textarea").focus();
+    return false;
+  });
+
+  // Handle tweet message after pressing submit button
   $("form").submit(function(event) {
     event.preventDefault();
 
@@ -139,7 +163,7 @@ $(document).ready(function() {
           $(".error-message").text("");
           $(".new-tweet span").text(maxLen);
           $(".error-message").slideUp(0);
-          
+
           // Load newly written tweet to tweet-list
           loadTweets();
         });

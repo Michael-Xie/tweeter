@@ -44,10 +44,20 @@ nav {
 #arrow {
   padding-left: 6px;
   height: 25%;
-  color: white;
+  color: red;
   animation: float 2s ease-in-out infinite;
 }
 
-#arrow:hover {
+#arrow:hover #back-to-top:hover {
   font-weight: bold;
+}
+
+#back-to-top {
+  color: red;
+  font-size: 2em;
+  position: fixed;
+  right: 2em;
+  bottom: 2em;
+  z-index: 900;
+  cursor: pointer;
 }
