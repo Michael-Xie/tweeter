@@ -137,7 +137,7 @@ const deleteTweets = function () {
 
 $(document).ready(function () {
   loadTweets();
-
+  $(".new-tweet").hide();
   $("#write-tweet").on("click", function () {
     $(".new-tweet").slideToggle();
   });
