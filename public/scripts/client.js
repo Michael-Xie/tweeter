@@ -105,8 +105,8 @@ function formatTime(timeCreated) {
   return "<1 minutes ago";
 }
 
-const sortData = function(data) {
-  return data.sort(function(a, b) {
+const sortData = function (data) {
+  return data.sort(function (a, b) {
     if (a.created_at > b.created_at) {
       return -1;
     } else if (a.created_at < b.created_at) {
@@ -125,7 +125,7 @@ const loadTweets = function () {
 
 }
 
-const deleteTweets = function() {
+const deleteTweets = function () {
   $(".tweet").remove();
 }
 
@@ -138,23 +138,35 @@ const deleteTweets = function() {
 $(document).ready(function () {
   loadTweets();
 
-  $("#arrow").on("click", function(){
+  $("#arrow").on("click", function () {
     $(".new-tweet").slideToggle();
   });
+
+  $(".error-message").slideUp(0);
 
   $("form").submit(function (event) {
     event.preventDefault();
     const maxLen = 140;
-    let value = this.children[0].value;
-    if (value.length > maxLen) {
-      alert(`Please shorten your message. It is over 140 characters`);
-    } else if (value.length === null || value.length === 0) {
-      alert(`Empty tweet not accepted`);
+    // console.log(value);
+    // console.log(this.children[0].value);
+
+    if (this.children[0].value.length > maxLen) {
+      $(".error-message").text(`Please shorten your message. It is over 140 characters.`);
+      $(".error-message").slideDown(0);
+
+    } else if (this.children[0].value.length === null || this.children[0].value.length === 0) {
+      $(".error-message").text(`Empty tweet not accepted.`);
+      $(".error-message").slideDown(0);
+
     } else {
       $.ajax("/tweets/", { method: "POST", data: $(this).serialize() })
         .done(function () {
           console.log("Ajax request successful");
-          $("form textarea").val("");
+          $("textarea").val("");
+          $(".error-message").text("");
+          $(".new-tweet span").text(maxLen);
+          $(".error-message").slideUp(0);
+
           loadTweets();
         });
     }
