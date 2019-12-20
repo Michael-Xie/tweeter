@@ -57,7 +57,7 @@ nav {
   font-size: 2em;
   position: fixed;
   right: 2em;
-  bottom: 2em;
+  bottom: 1.5em;
   z-index: 900;
   cursor: pointer;
 }

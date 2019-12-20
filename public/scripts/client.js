@@ -119,7 +119,7 @@ $(document).ready(function() {
   $(".error-message").slideUp(0);
 
   // Setup second toggle button at bottom right of screen, and appears after scrolling for some time
-  let offset = 300;
+  let offset = 400;
   let duration = 200;
   $('#back-to-top').hide();
   $(window).scroll(function() {
